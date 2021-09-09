@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar Itens Array</title>
+</head>
+<body>
+    <h3>Lista de Compras</h3>
+    <input id="entrada" type="text">
+    <button onclick="adicionar()" type="button">Adiconar Item</button>
+    <button onclick="ordenar()" type="button">Ordenar Itens</button>
+    <button onclick="imprimir()" type="button">Imprimir Lista</button>
+
+
+    <script>
+        //criar array objetos
+        var objetos = []
+
+        //função para adicionar itens
+        function adicionar(){
+            var item = document.getElementById('entrada').value
+            
+            //lógica de verificação
+            if(item == '')
+            {
+                alert('Informe um valor válido!')
+            }
+            else if(objetos.includes(item) == true)
+            {
+                alert('Item já foi adicionado.')
+            }
+            else
+            {
+                //add item no array
+                objetos.push(item) 
+
+                //debug 
+                console.log(objetos) 
+
+                //limpar o valor contido no campo de entrada
+                document.getElementById('entrada').value = ''
+            }
+        }
+
+        //função para ordenar a lista
+        function ordenar(){
+            objetos.sort()
+            console.log(objetos)
+        }
+
+        //função para imprimir lista
+        function imprimir(){
+            document.write('<h2>Lista de Compras</h2> <br>' +objetos) 
+        }
+    </script>
+    
+</body>
+</html>
